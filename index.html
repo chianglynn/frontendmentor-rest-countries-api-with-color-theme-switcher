@@ -5,12 +5,86 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>REST Countries API with color theme switcher</title>
     <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <header class="header">
+        <h2>Where in the world?</h2>
+        <div class="scheme-container">
+            <div class="dark-theme">
+                <i class="far fa-moon"></i>
+                <span>Dark Mode</span>
+            </div>
+            <div class="light-theme hidden">
+                <i class="far fa-sun"></i>
+                <span>Light Mode</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="search-container">
+        <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" class="search-input" placeholder="Search for a country...">
+        </div>
+        <select name="region" class="region-filter" id="region-filter">
+            <option value="">Filter by Region</option>
+            <option value="africa">Africa</option>
+            <option value="america">America</option>
+            <option value="asia">Asia</option>
+            <option value="europe">Europe</option>
+            <option value="oceania">Oceania</option>
+        </select>
+    </div>
+
+    <div class="country-card-container">
+        <img src="" alt="">
+        <div class="country-card">
+            <h2>Germany</h2>
+            <ul class="brief-information">
+                <li><strong>Population: </strong>81,770,900</li>
+                <li><strong>Region: </strong>Europe</li>
+                <li><strong>Capital: </strong>Berlin</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- <div class="country-introduction">
+        <button class="back-button">
+            <i class="fas fa-arrow-left"></i>
+            <span>Back</span>
+        </button>
+        <img src="" alt="">
+        <div class="detail-information">
+            <h1>Belgium</h1>
+            <ul class="geography-information">
+                <li><strong>Native Name: </strong>Belgie</li>
+                <li><strong>Population: </strong>11,319,511</li>
+                <li><strong>Region: </strong>Europe</li>
+                <li><strong>Sub Region: </strong>Western Europe</li>
+                <li><strong>Capital: </strong>Brussel</li>
+            </ul>
+            <ul class="other-information">
+                <li><strong>Top Level Domain: </strong>.be</li>
+                <li><strong>Currencies: </strong>Euro</li>
+                <li><strong>Language: </strong>Dutch, French, German</li>
+            </ul>
+            <div class="border-countries">
+                <h3>Border Countries:</h3>
+                <ul class="countries">
+                    <li>France</li>
+                    <li>Germany</li>
+                    <li>Netherlands</li>
+                </ul>
+            </div>
+        </div>
+    </div> -->
 
     <script src="script.js"></script>
 </body>
