@@ -1,3 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+
+* {
+    /* Colors of light color-scheme */
+    --input-light      : hsl(0, 0%, 52%);
+    --text-light       : hsl(200, 15%, 8%);
+    --elements-light   : hsl(0, 0%, 100%);
+    --background1-light: hsl(0, 0%, 100%);
+    --background2-light: hsl(0, 0%, 98%);
+    /* Colors of dark color-scheme */
+    --input-dark       : hsl(0, 0%, 100%);
+    ;
+    --text-dark       : hsl(0, 0%, 100%);
+    --elements-dark   : hsl(209, 23%, 22%);
+    --background1-dark: hsl(209, 23%, 22%);
+    --background2-dark: hsl(207, 26%, 17%);
+}
+
+:root {
+    /* Font-size */
+    --fontsize-homepage-items    : .875px;
+    /* =14/16px */
+    --fontsize-detailpage-items  : 1rem;
+    /* =16/16px */
+    --fontsize-homepage-heading  : 1.125rem;
+    /* =18/16px */
+    --fontsize-detailpage-heading: 1.5rem;
+    /* =24/16px */
+
+    /* Color scheme default setting*/
+    color-scheme : light;
+    --input      : var(--input-light);
+    --text       : var(--text-light);
+    --elements   : var(--elements-light);
+    --background1: var(--background1-light);
+    --background2: var(--background2-light);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme : dark;
+        --input      : var(--input-dark);
+        --text       : var(--text-dark);
+        --elements   : var(--elements-dark);
+        --background1: var(--background1-dark);
+        --background2: var(--background2-dark);
+    }
+}
+
+[color-scheme="light"] {
+    color-scheme : light;
+    --input      : var(--input-light);
+    --text       : var(--text-light);
+    --elements   : var(--elements-light);
+    --background1: var(--background1-light);
+    --background2: var(--background2-light);
+}
+
+[color-scheme="dark"] {
+    color-scheme : dark;
+    --input      : var(--input-dark);
+    --text       : var(--text-dark);
+    --elements   : var(--elements-dark);
+    --background1: var(--background1-dark);
+    --background2: var(--background2-dark);
+}
+
 html {
     box-sizing: border-box;
     font-size : 100%;
@@ -10,6 +77,116 @@ html {
 }
 
 body {
-    margin : 0 auto;
-    padding: 0;
+    min-width  : 375px;
+    max-width  : 1440px;
+    margin     : 0 auto;
+    padding    : 0;
+    font-family: 'Nunito Sans', sans-serif;
+    color      : var(--text);
 }
+
+li {
+    list-style: none;
+}
+
+/* Font setting */
+li,
+span {
+    font-weight: 300;
+}
+
+strong {
+    font-weight: 600;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+}
+
+h2 {
+    font-size  : var(--fontsize-homepage-heading);
+    font-weight: 800;
+}
+
+.scheme-container span,
+.country-card-container li {
+    font-size: var(--fontsize-homepage-items);
+}
+
+h1 {
+    font-size  : var(--fontsize-detailpage-heading);
+    font-weight: 800;
+}
+
+h3 {
+    font-size  : var(--fontsize-detailpage-items);
+    font-weight: 600;
+}
+
+.back-button span,
+.detail-information li {
+    font-size: var(--fontsize-detailpage-items);
+}
+
+/* Header */
+.header {
+    display        : flex;
+    justify-content: space-between;
+    align-items    : center;
+    padding        : 4rem 2rem;
+    background     : var(--background1);
+}
+
+.scheme-container {
+    display    : flex;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Search */
+.search-container {
+    padding   : 2.5rem 2rem 2.75rem;
+    background: var(--background2);
+}
+
+.search-bar {
+    display       : flex;
+    flex-direction: row;
+    align-items   : center;
+    padding       : 1rem;
+    margin-bottom : 3rem;
+    width         : 100%;
+    border-radius : 5px;
+    box-shadow    : 0 0 3px rgba(0, 0, 0, 0.05);
+    background    : var(--background1);
+}
+
+.fa-search {
+    margin: 0 1rem;
+    color : var(--input);
+}
+
+.search-input {
+    margin: 0 1rem;
+    width : 100%;
+    border: none;
+}
+
+.search-input::placeholder {
+    color: var(--input);
+}
+
+.region-filter {
+    padding      : 1rem;
+    border       : none;
+    border-radius: 5px;
+    box-shadow   : 0 0 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive design for mobile device and desktop */
+@media screen and (min-width: 768px) {}
