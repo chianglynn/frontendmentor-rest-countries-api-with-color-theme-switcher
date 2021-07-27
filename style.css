@@ -85,14 +85,25 @@ body {
     color      : var(--text);
 }
 
+ul {
+    padding: 0;
+    margin : 0;
+}
+
 li {
-    list-style: none;
+    list-style : none;
+    line-height: 2;
 }
 
 /* Font setting */
 li,
-span {
+span,
+.back-button {
     font-weight: 300;
+}
+
+.back-button {
+    font-family: inherit;
 }
 
 strong {
@@ -126,31 +137,37 @@ h3 {
 }
 
 .back-button span,
-.detail-information li {
+.information-container li {
     font-size: var(--fontsize-detailpage-items);
 }
 
 /* Header */
 .header {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    background: var(--background1);
+}
+
+.title-section {
     display        : flex;
     justify-content: space-between;
     align-items    : center;
-    padding        : 4rem 2rem;
-    background     : var(--background1);
+    padding        : 3.5rem 2rem;
+    max-width      : 1440px;
 }
 
 .scheme-container {
-    display    : flex;
-    align-items: center;
+    display        : flex;
+    justify-content: space-between;
+    align-items    : center;
 }
 
 .hidden {
     display: none;
 }
 
-/* Search */
+/* Home page: Search */
 .search-container {
-    padding   : 2.5rem 2rem 2.75rem;
+    padding   : 2.5rem 2rem 1.375rem;
     background: var(--background2);
 }
 
@@ -164,21 +181,17 @@ h3 {
     border-radius : 5px;
     box-shadow    : 0 0 3px rgba(0, 0, 0, 0.05);
     background    : var(--background1);
+    color         : var(--input);
 }
 
 .fa-search {
     margin: 0 1rem;
-    color : var(--input);
 }
 
 .search-input {
     margin: 0 1rem;
     width : 100%;
     border: none;
-}
-
-.search-input::placeholder {
-    color: var(--input);
 }
 
 .region-filter {
@@ -188,5 +201,161 @@ h3 {
     box-shadow   : 0 0 3px rgba(0, 0, 0, 0.05);
 }
 
+/* Home page: Card */
+.country-card-container {
+    display       : flex;
+    flex-direction: column;
+    align-items   : center;
+    padding       : 1.375rem 0;
+    background    : var(--background2);
+}
+
+.country-card {
+    margin-bottom: 3rem;
+    width        : 70%;
+    border-radius: 5px;
+    background   : var(--background1);
+}
+
+.country-card .country-flag img {
+    width                  : 100%;
+    border-top-left-radius : 5px;
+    border-top-right-radius: 5px;
+}
+
+.card-information {
+    padding: 1.5rem 1.5rem 2.5rem;
+}
+
+.card-information h2 {
+    margin-bottom: 1rem;
+}
+
+/* Detail Page */
+.country-introduction {
+    padding: 3rem 2.5rem 3.75rem;
+}
+
+.back-button {
+    display      : flex;
+    align-items  : center;
+    padding      : .5rem 1.5rem .5rem 1rem;
+    margin-bottom: 6rem;
+    border       : none;
+    border-radius: 3px;
+    box-shadow   : 0 0 10px rgba(0, 0, 0, 0.3);
+    background   : var(--background1);
+}
+
+.fa-arrow-left {
+    padding: 0 .5rem;
+}
+
+.information-section img {
+    width        : 100%;
+    margin-bottom: 4rem;
+}
+
+.detail-information h1 {
+    margin-bottom: 2rem;
+}
+
+.geography-information,
+.other-information {
+    margin-bottom: 3rem;
+}
+
+.border-countries h3 {
+    margin-bottom: 1.5rem;
+}
+
+.countries li {
+    display      : inline-block;
+    width        : 7rem;
+    padding      : .3rem;
+    border-radius: 3px;
+    text-align   : center;
+    box-shadow   : 0 0 10px rgba(0, 0, 0, 0.3);
+    background   : var(--background1);
+}
+
+.countries li:not(:last-child) {
+    margin-right: .5rem;
+}
+
 /* Responsive design for mobile device and desktop */
-@media screen and (min-width: 768px) {}
+@media screen and (min-width: 768px) {
+
+    /* Header */
+    .title-section {
+        padding: 2rem 4rem;
+    }
+
+    /* Home page: Search */
+    .search-container {
+        display        : flex;
+        justify-content: space-between;
+        align-items    : center;
+        padding        : 3rem 4rem;
+    }
+
+    .search-bar {
+        margin: 0;
+        width : 35%;
+    }
+
+    /* Home page: Card */
+    .country-card-container {
+        flex-direction : row;
+        flex-wrap      : wrap;
+        justify-content: space-between;
+        align-items    : center;
+        padding        : 0rem 2rem;
+    }
+
+    .country-card {
+        margin   : 2rem;
+        max-width: 16%;
+    }
+
+    /* Detail page */
+    .country-introduction {
+        padding: 3rem 4rem 3.75rem;
+    }
+
+    .information-section {
+        display        : flex;
+        flex-direction : row;
+        justify-content: space-between;
+        align-items    : center;
+    }
+
+    .information-section .country-flag {
+        flex         : 1;
+        padding-right: 6rem;
+    }
+
+    .information-section .country-flag img {
+        margin: 0;
+    }
+
+    .detail-information {
+        flex: 1;
+    }
+
+    .information-container {
+        display        : flex;
+        justify-content: space-between;
+    }
+
+    .border-countries {
+        display       : flex;
+        flex-direction: row;
+        align-items   : center;
+    }
+
+    .border-countries h3 {
+        margin-bottom: 0;
+        margin-right : 1rem;
+    }
+}
