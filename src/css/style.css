@@ -141,17 +141,20 @@ h3 {
     font-size: var(--fontsize-detailpage-items);
 }
 
-/* Spinner */
+/* Loader */
 .loader {
-    position     : fixed;
-    top          : 50%;
-    left         : 50%;
+    position : fixed;
+    top      : 50%;
+    left     : 50%;
+    transform: translate(-50%, -50%);
+}
+
+.spinner {
     border       : 15px solid var(--background1);
     border-top   : 15px solid var(--background2);
     border-radius: 50%;
     width        : 120px;
     height       : 120px;
-    transform    : translate(-50%, -50%);
     animation    : spinner 2s linear infinite;
 }
 
