@@ -141,6 +141,20 @@ h3 {
     font-size: var(--fontsize-detailpage-items);
 }
 
+/* Spinner */
+.loader {
+    position     : fixed;
+    top          : 50%;
+    left         : 50%;
+    border       : 15px solid var(--background1);
+    border-top   : 15px solid var(--background2);
+    border-radius: 50%;
+    width        : 120px;
+    height       : 120px;
+    transform    : translate(-50%, -50%);
+    animation    : spinner 2s linear infinite;
+}
+
 /* Header */
 .header {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -271,7 +285,7 @@ h3 {
 
 .countries li {
     display      : inline-block;
-    width        : 7rem;
+    width        : 6.5rem;
     padding      : .3rem;
     border-radius: 3px;
     text-align   : center;
@@ -281,6 +295,17 @@ h3 {
 
 .countries li:not(:last-child) {
     margin-right: .5rem;
+}
+
+/* Animation */
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /* Responsive design for mobile device and desktop */
