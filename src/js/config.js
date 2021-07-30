@@ -1,0 +1,1 @@
+export const API_URL_COUNTRY = 'https://restcountries.eu/rest/v2/name';
