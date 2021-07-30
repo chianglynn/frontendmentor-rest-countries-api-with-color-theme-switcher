@@ -95,6 +95,18 @@ li {
     line-height: 2;
 }
 
+a,
+a:visited,
+a:active {
+    text-decoration: none;
+    color          : var(--text);
+}
+
+a:hover .country-flag,
+a:hover .card-information {
+    opacity: .8;
+}
+
 /* Font setting */
 li,
 span,
@@ -104,6 +116,7 @@ span,
 
 .back-button {
     font-family: inherit;
+    cursor     : pointer;
 }
 
 strong {
@@ -156,6 +169,11 @@ h3 {
     width        : 120px;
     height       : 120px;
     animation    : spinner 2s linear infinite;
+}
+
+/* Error message */
+.error p {
+    text-align: center;
 }
 
 /* Header */
