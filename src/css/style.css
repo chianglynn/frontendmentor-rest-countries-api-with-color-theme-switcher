@@ -194,6 +194,7 @@ h3 {
     display        : flex;
     justify-content: space-between;
     align-items    : center;
+    cursor         : pointer;
 }
 
 .hidden {
@@ -227,6 +228,10 @@ h3 {
     margin: 0 1rem;
     width : 100%;
     border: none;
+}
+
+.search-input:focus {
+    outline: none;
 }
 
 .region-filter {
