@@ -310,13 +310,14 @@ h3 {
 }
 
 .countries li {
-    display      : inline-block;
-    width        : 6.5rem;
-    padding      : .3rem;
-    border-radius: 3px;
-    text-align   : center;
-    box-shadow   : 0 0 10px rgba(0, 0, 0, 0.3);
-    background   : var(--background1);
+    display       : inline-block;
+    vertical-align: middle;
+    width         : 6.5rem;
+    padding       : .3rem;
+    border-radius : 3px;
+    text-align    : center;
+    box-shadow    : 0 0 10px rgba(0, 0, 0, 0.3);
+    background    : var(--background1);
 }
 
 .countries li:not(:last-child) {
