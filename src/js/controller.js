@@ -1,6 +1,15 @@
 import * as model from './model.js';
+import headerView from './views/headerView.js';
 import homePageView from './views/homePageView.js';
 import countryDetailView from './views/countryDetailView.js';
+
+const controlColorScheme = function () {
+    const colorScheme = headerView.getColorScheme();
+    const themes = document.querySelectorAll('.theme');
+    const html = document.firstElementChild;
+    themes.forEach(theme => theme.classList.toggle('hidden'));
+    html.setAttribute('color-scheme', colorScheme);
+};
 
 const controlCountry = async function () {
     try {
@@ -55,6 +64,7 @@ const controlFilterResults = async function () {
 
 const init = function () {
     controlAllCountries();
+    headerView.addHandlerColorScheme(controlColorScheme);
     homePageView.addHandlerShowDetails(controlCountry);
     homePageView.addHandlerSearch(controlSearchResults);
     homePageView.addHandlerFilter(controlFilterResults);
