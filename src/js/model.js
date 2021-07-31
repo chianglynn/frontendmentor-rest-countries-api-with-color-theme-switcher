@@ -88,8 +88,3 @@ export const loadAllCountries = async function () {
         throw err;
     }
 };
-
-// console.log(state.allCountries);
-// loadSearchResults('united');
-// loadFilterResults('asia');
-// loadAllCountries();
