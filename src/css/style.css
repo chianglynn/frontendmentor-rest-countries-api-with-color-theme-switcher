@@ -360,14 +360,23 @@ h3 {
     .country-card-container {
         flex-direction : row;
         flex-wrap      : wrap;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items    : center;
         padding        : 0rem 2rem;
     }
 
     .country-card {
-        margin   : 2rem;
-        max-width: 16%;
+        margin   : 1rem 1rem 2.5rem;
+        max-width: 18%;
+    }
+
+    .country-card .country-flag img {
+        height    : 150px;
+        object-fit: cover;
+    }
+
+    .card-information {
+        padding: 1.2rem 1rem 2.3rem;
     }
 
     /* Detail page */
