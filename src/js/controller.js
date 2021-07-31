@@ -17,7 +17,7 @@ const controlCountry = async function () {
         if (!countryName) return;
 
         countryDetailView.renderSpinner();
-        await model.loadCountry(countryName);
+        await model.loadCountryByName(countryName);
         countryDetailView.render(model.state.country);
     } catch (err) {
         countryDetailView.renderError();

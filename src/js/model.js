@@ -1,4 +1,4 @@
-import { API_URL_COUNTRY, API_URL_ALLCOUNTRIES, API_URL_REGION } from './config.js';
+import { API_URL_COUNTRY, API_URL_CODE, API_URL_REGION, API_URL_ALLCOUNTRIES } from './config.js';
 import { getJSON } from './helpers.js';
 
 export const state = {
@@ -14,10 +14,12 @@ export const state = {
     allCountries: {},
 };
 
-export const loadCountry = async function (countryName) {
+export const loadCountryByName = async function (countryName) {
     try {
         const data = await getJSON(`${API_URL_COUNTRY}${countryName}`);
         const country = data[0];
+        const borderCountries = await Promise.all(country.borders.map(alpha3Code => loadCountryNameByCode(alpha3Code)));
+
         state.country = {
             name: country.name,
             flag: country.flag,
@@ -29,7 +31,7 @@ export const loadCountry = async function (countryName) {
             topLevelDomain: country.topLevelDomain,
             currencies: country.currencies,
             languages: country.languages,
-            borderCountries: country.borders,
+            borderCountries,
         };
     } catch (err) {
         throw err;
@@ -87,4 +89,10 @@ export const loadAllCountries = async function () {
     } catch (err) {
         throw err;
     }
+};
+
+const loadCountryNameByCode = async function (alpha3Code) {
+    const data = await getJSON(`${API_URL_CODE}${alpha3Code}`);
+    const countryName = data.name;
+    return countryName;
 };
