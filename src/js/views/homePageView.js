@@ -14,13 +14,39 @@ class HomePageView extends View {
         });
     }
 
+    addHandlerSearch(handler) {
+        this._parentElement.addEventListener('submit', function (e) {
+            e.preventDefault();
+            handler();
+        });
+    }
+
+    addHandlerFilter(handler) {
+        this._parentElement.addEventListener('change', handler);
+    }
+
+    getQuery() {
+        const query = this._parentElement.querySelector('.search-input').value;
+        this._clearInput();
+        return query;
+    }
+
+    getFilterValue() {
+        const filterValue = this._parentElement.querySelector('.region-filter').value;
+        return filterValue;
+    }
+
+    _clearInput() {
+        this._parentElement.querySelector('.search-input').value = '';
+    }
+
     _generateMarkup() {
         return `
         <div class="search-container">
-            <div class="search-bar">
+            <form class="search-bar">
                 <i class="fas fa-search"></i>
                 <input type="text" class="search-input" placeholder="Search for a country...">
-            </div>
+            </form>
             <select name="region" class="region-filter" id="region-filter">
                 <option value="">Filter by Region</option>
                 <option value="africa">Africa</option>

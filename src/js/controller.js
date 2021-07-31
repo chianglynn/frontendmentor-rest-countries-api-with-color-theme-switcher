@@ -1,36 +1,65 @@
 import * as model from './model.js';
-import HomePageView from './views/homePageView.js';
-import CountryDetailView from './views/countryDetailView.js';
+import homePageView from './views/homePageView.js';
+import countryDetailView from './views/countryDetailView.js';
 
 const controlCountry = async function () {
     try {
         const countryName = window.location.hash.slice(1);
         if (!countryName) return;
 
-        CountryDetailView.renderSpinner();
+        countryDetailView.renderSpinner();
         await model.loadCountry(countryName);
-        CountryDetailView.render(model.state.country);
+        countryDetailView.render(model.state.country);
     } catch (err) {
-        CountryDetailView.renderError();
+        countryDetailView.renderError();
     }
 };
 
-const controlHomePage = async function () {
+const controlAllCountries = async function () {
     try {
         window.location.hash = '';
-        HomePageView.renderSpinner();
+
+        homePageView.renderSpinner();
         await model.loadAllCountries();
-        HomePageView.render(model.state.allCountries);
+        homePageView.render(model.state.allCountries);
     } catch (err) {
-        HomePageView.renderError();
+        homePageView.renderError();
     }
 }
 
+const controlSearchResults = async function () {
+    try {
+        const query = homePageView.getQuery();
+        if (!query) return;
+
+        homePageView.renderSpinner();
+        await model.loadSearchResults(query);
+        homePageView.render(model.state.search.results);
+    } catch (err) {
+        homePageView.renderError();
+    }
+};
+
+const controlFilterResults = async function () {
+    try {
+        const filterValue = homePageView.getFilterValue();
+        if (!filterValue) return;
+
+        homePageView.renderSpinner();
+        await model.loadFilterResults(filterValue);
+        homePageView.render(model.state.filter.results);
+    } catch (err) {
+        homePageView.renderError();
+    }
+};
+
 const init = function () {
-    controlHomePage();
-    HomePageView.addHandlerShowDetails(controlCountry);
-    CountryDetailView.addHandlerRender(controlCountry);
-    CountryDetailView.addHandlerReturnPage(controlHomePage);
+    controlAllCountries();
+    homePageView.addHandlerShowDetails(controlCountry);
+    homePageView.addHandlerSearch(controlSearchResults);
+    homePageView.addHandlerFilter(controlFilterResults);
+    countryDetailView.addHandlerRender(controlCountry);
+    countryDetailView.addHandlerReturnPage(controlAllCountries);
 };
 
 init();
