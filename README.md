@@ -7,6 +7,7 @@ This is a solution to the [REST Countries API with color theme switcher challeng
 - [Overview](#overview)
   - [The challenge](#the-challenge)
   - [Screenshot](#screenshot)
+  - [Structure](#structure)
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
@@ -30,6 +31,10 @@ Users should be able to:
 
 ![img](https://github.com/chianglynn/frontendmentor-rest-countries-api-with-color-theme-switcher/blob/main/src/screenshot/screenshot-light.png?raw=true)
 ![img](https://github.com/chianglynn/frontendmentor-rest-countries-api-with-color-theme-switcher/blob/main/src/screenshot/screenshot-dark.png)
+
+### Structure
+
+![img](https://github.com/chianglynn/frontendmentor-rest-countries-api-with-color-theme-switcher/blob/main/structure.png?raw=true)
 
 ### Links
 
