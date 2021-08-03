@@ -57,5 +57,6 @@ Users should be able to:
 
 ## Author
 
+- Website - [Lynn Chiang's Portfolio](https://chianglynn.github.io/personal-website/)
 - Blog - [Lynn's Self-taught Records](https://lynnchiang.wordpress.com/)
 - Frontend Mentor - [@chianglynn](https://www.frontendmentor.io/profile/chianglynn)
