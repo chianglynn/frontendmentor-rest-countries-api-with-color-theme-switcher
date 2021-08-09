@@ -42,24 +42,10 @@ class HomePageView extends View {
 
     _generateMarkup() {
         return `
-        <div class="search-container">
-            <form class="search-bar">
-                <i class="fas fa-search"></i>
-                <input type="text" class="search-input" placeholder="Search for a country...">
-            </form>
-            <select name="region" class="region-filter" id="region-filter">
-                <option value="">Filter by Region</option>
-                <option value="africa">Africa</option>
-                <option value="america">America</option>
-                <option value="asia">Asia</option>
-                <option value="europe">Europe</option>
-                <option value="oceania">Oceania</option>
-            </select>
-        </div>
-
-        <div class="country-card-container">
-            ${this._data.map(this._generateCountryCard).join('')}
-        </div>
+            ${this._generateSearchBarAndFilter()}
+            <div class="country-card-container">
+                ${this._data.map(this._generateCountryCard).join('')}
+            </div>
         `;
     }
 
@@ -80,6 +66,34 @@ class HomePageView extends View {
                         </ul>
                     </div>
                 </a>
+            </div>
+        `;
+    }
+
+    _generateError(message) {
+        return `
+            ${this._generateSearchBarAndFilter()}
+            <div class="error">
+                <p>${message}</p>
+            </div>
+        `;
+    }
+
+    _generateSearchBarAndFilter() {
+        return `
+            <div class="search-container">
+                <form class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" class="search-input" placeholder="Search for a country...">
+                </form>
+                <select name="region" class="region-filter" id="region-filter">
+                    <option value="">Filter by Region</option>
+                    <option value="africa">Africa</option>
+                    <option value="america">America</option>
+                    <option value="asia">Asia</option>
+                    <option value="europe">Europe</option>
+                    <option value="oceania">Oceania</option>
+                </select>
             </div>
         `;
     }

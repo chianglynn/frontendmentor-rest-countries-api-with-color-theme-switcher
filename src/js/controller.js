@@ -45,7 +45,7 @@ const controlSearchResults = async function () {
         await model.loadSearchResults(query);
         homePageView.render(model.state.search.results);
     } catch (err) {
-        homePageView.renderError();
+        homePageView.renderError('No countries found for your query.');
     }
 };
 

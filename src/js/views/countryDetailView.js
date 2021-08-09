@@ -4,7 +4,7 @@ import { numberWithCommas } from '../helpers.js';
 class CountryDetailView extends View {
     _parentElement = document.querySelector('.container');
     _data;
-    _errorMessage = 'No countries found for your query.';
+    _errorMessage = 'Data Access Error. Please try again later.';
 
     addHandlerRender(handler) {
         ['load', 'hashchange'].forEach(ev => window.addEventListener(ev, handler));
@@ -54,6 +54,14 @@ class CountryDetailView extends View {
                         </div>
                     </div>
                 </div>
+            </div>
+        `;
+    }
+
+    _generateError(message) {
+        return `
+            <div class="error">
+                <p>${message}</p>
             </div>
         `;
     }

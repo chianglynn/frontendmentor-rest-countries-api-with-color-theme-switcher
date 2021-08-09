@@ -12,11 +12,7 @@ export default class View {
     }
 
     renderError(message = this._errorMessage) {
-        const markup = `
-            <div class="error">
-                <p>${message}</p>
-            </div>
-        `;
+        const markup = this._generateError(message);
         this._clear();
         this._parentElement.insertAdjacentHTML('afterbegin', markup);
     }

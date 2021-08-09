@@ -172,8 +172,14 @@ h3 {
 }
 
 /* Error message */
+.error {
+    height: 100vh;
+}
+
 .error p {
-    text-align: center;
+    margin     : 0;
+    padding-top: 4rem;
+    text-align : center;
 }
 
 /* Header */
