@@ -50,25 +50,6 @@ class HomePageView extends View {
             </div>
         `;
     }
-
-    _generateSearchBarAndFilter() {
-        return `
-            <div class="search-container">
-                <form class="search-bar">
-                    <i class="fas fa-search"></i>
-                    <input type="text" class="search-input" placeholder="Search for a country...">
-                </form>
-                <select name="region" class="region-filter" id="region-filter">
-                    <option value="">Filter by Region</option>
-                    <option value="africa">Africa</option>
-                    <option value="america">America</option>
-                    <option value="asia">Asia</option>
-                    <option value="europe">Europe</option>
-                    <option value="oceania">Oceania</option>
-                </select>
-            </div>
-        `;
-    }
 }
 
 export default new HomePageView();
