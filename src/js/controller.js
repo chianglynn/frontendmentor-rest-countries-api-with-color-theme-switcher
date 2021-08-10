@@ -88,7 +88,6 @@ const init = function () {
     headerView.addHandlerColorScheme(controlColorScheme);
     searchAndFilterView.addHandlerSearch(controlSearchResults);
     searchAndFilterView.addHandlerFilter(controlFilterResults);
-    allCountriesView.addHandlerShowDetails(controlCountry);
     countryDetailView.addHandlerRender(controlCountry);
     countryDetailView.addHandlerReturnPage(controlAllCountries);
 };

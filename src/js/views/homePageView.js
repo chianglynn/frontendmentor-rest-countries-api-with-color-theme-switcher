@@ -4,14 +4,6 @@ import { numberWithCommas } from '../helpers.js';
 export default class HomePageView extends View {
     _data;
 
-    addHandlerShowDetails(handler) {
-        this._parentElement.addEventListener('click', function (e) {
-            const card = e.target.closest('.country-card-link');
-            if (!card) return;
-            handler();
-        });
-    }
-
     _generateMarkup() {
         return `
             <div class="country-card-container">
