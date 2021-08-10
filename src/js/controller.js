@@ -1,8 +1,16 @@
 import * as model from './model.js';
 import headerView from './views/headerView.js';
 import searchAndFilterView from './views/searchAndFilterView.js';
-import homePageView from './views/homePageView.js';
+import allCountriesView from './views/allCountriesView.js';
+import searchResultsView from './views/searchResultsView.js';
+import filterResultsView from './views/filterResultsView.js';
 import countryDetailView from './views/countryDetailView.js';
+
+const searchContainer = document.querySelector('.search-container');
+const allCountriesContainer = document.querySelector('.all-countries');
+const searchResultsContainer = document.querySelector('.search-results');
+const filterResultsContainer = document.querySelector('.filter-results');
+const countryIntroductionContainer = document.querySelector('.country-introduction');
 
 const controlColorScheme = function () {
     const colorScheme = headerView.getColorScheme();
@@ -17,8 +25,8 @@ const controlCountry = async function () {
         const countryName = window.location.hash.slice(1);
         if (!countryName) return;
 
-        const searchContainer = document.querySelector('.search-container');
-        searchContainer.classList.add('hidden');
+        [searchContainer, allCountriesContainer, searchResultsContainer, filterResultsContainer].forEach(container => container.classList.add('hidden'));
+        countryIntroductionContainer.classList.remove('hidden');
 
         countryDetailView.renderSpinner();
         await model.loadCountryByName(countryName);
@@ -32,14 +40,14 @@ const controlAllCountries = async function () {
     try {
         window.location.hash = '';
 
-        const searchContainer = document.querySelector('.search-container');
-        searchContainer.classList.remove('hidden');
+        [searchContainer, allCountriesContainer].forEach(container => container.classList.remove('hidden'));
+        countryIntroductionContainer.classList.add('hidden');
 
-        homePageView.renderSpinner();
+        allCountriesView.renderSpinner();
         await model.loadAllCountries();
-        homePageView.render(model.state.allCountries);
+        allCountriesView.render(model.state.allCountries);
     } catch (err) {
-        homePageView.renderError();
+        allCountriesView.renderError();
     }
 }
 
@@ -48,11 +56,14 @@ const controlSearchResults = async function () {
         const query = searchAndFilterView.getQuery();
         if (!query) return;
 
-        homePageView.renderSpinner();
+        [allCountriesContainer, filterResultsContainer].forEach(container => container.classList.add('hidden'));
+        searchResultsContainer.classList.remove('hidden');
+
+        searchResultsView.renderSpinner();
         await model.loadSearchResults(query);
-        homePageView.render(model.state.search.results);
+        searchResultsView.render(model.state.search.results);
     } catch (err) {
-        homePageView.renderError('No countries found for your query.');
+        searchResultsView.renderError();
     }
 };
 
@@ -61,11 +72,14 @@ const controlFilterResults = async function () {
         const filterValue = searchAndFilterView.getFilterValue();
         if (!filterValue) return;
 
-        homePageView.renderSpinner();
+        [allCountriesContainer, searchResultsContainer].forEach(container => container.classList.add('hidden'));
+        filterResultsContainer.classList.remove('hidden');
+
+        filterResultsView.renderSpinner();
         await model.loadFilterResults(filterValue);
-        homePageView.render(model.state.filter.results);
+        filterResultsView.render(model.state.filter.results);
     } catch (err) {
-        homePageView.renderError();
+        filterResultsView.renderError();
     }
 };
 
@@ -74,7 +88,7 @@ const init = function () {
     headerView.addHandlerColorScheme(controlColorScheme);
     searchAndFilterView.addHandlerSearch(controlSearchResults);
     searchAndFilterView.addHandlerFilter(controlFilterResults);
-    homePageView.addHandlerShowDetails(controlCountry);
+    allCountriesView.addHandlerShowDetails(controlCountry);
     countryDetailView.addHandlerRender(controlCountry);
     countryDetailView.addHandlerReturnPage(controlAllCountries);
 };

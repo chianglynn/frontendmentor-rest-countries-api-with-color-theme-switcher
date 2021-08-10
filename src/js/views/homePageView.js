@@ -1,10 +1,8 @@
 import View from './View.js';
 import { numberWithCommas } from '../helpers.js';
 
-class HomePageView extends View {
-    _parentElement = document.querySelector('.container');
+export default class HomePageView extends View {
     _data;
-    _errorMessage = 'Data Access Error. Please try again later.';
 
     addHandlerShowDetails(handler) {
         this._parentElement.addEventListener('click', function (e) {
@@ -51,5 +49,3 @@ class HomePageView extends View {
         `;
     }
 }
-
-export default new HomePageView();
