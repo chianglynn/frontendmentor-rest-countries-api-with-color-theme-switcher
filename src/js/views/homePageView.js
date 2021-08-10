@@ -14,35 +14,8 @@ class HomePageView extends View {
         });
     }
 
-    addHandlerSearch(handler) {
-        this._parentElement.addEventListener('submit', function (e) {
-            e.preventDefault();
-            handler();
-        });
-    }
-
-    addHandlerFilter(handler) {
-        this._parentElement.addEventListener('change', handler);
-    }
-
-    getQuery() {
-        const query = this._parentElement.querySelector('.search-input').value;
-        this._clearInput();
-        return query;
-    }
-
-    getFilterValue() {
-        const filterValue = this._parentElement.querySelector('.region-filter').value;
-        return filterValue;
-    }
-
-    _clearInput() {
-        this._parentElement.querySelector('.search-input').value = '';
-    }
-
     _generateMarkup() {
         return `
-            ${this._generateSearchBarAndFilter()}
             <div class="country-card-container">
                 ${this._data.map(this._generateCountryCard).join('')}
             </div>
@@ -72,7 +45,6 @@ class HomePageView extends View {
 
     _generateError(message) {
         return `
-            ${this._generateSearchBarAndFilter()}
             <div class="error">
                 <p>${message}</p>
             </div>

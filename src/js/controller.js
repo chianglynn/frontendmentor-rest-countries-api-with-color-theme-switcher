@@ -1,5 +1,6 @@
 import * as model from './model.js';
 import headerView from './views/headerView.js';
+import searchAndFilterView from './views/searchAndFilterView.js';
 import homePageView from './views/homePageView.js';
 import countryDetailView from './views/countryDetailView.js';
 
@@ -16,6 +17,9 @@ const controlCountry = async function () {
         const countryName = window.location.hash.slice(1);
         if (!countryName) return;
 
+        const searchContainer = document.querySelector('.search-container');
+        searchContainer.classList.add('hidden');
+
         countryDetailView.renderSpinner();
         await model.loadCountryByName(countryName);
         countryDetailView.render(model.state.country);
@@ -28,6 +32,9 @@ const controlAllCountries = async function () {
     try {
         window.location.hash = '';
 
+        const searchContainer = document.querySelector('.search-container');
+        searchContainer.classList.remove('hidden');
+
         homePageView.renderSpinner();
         await model.loadAllCountries();
         homePageView.render(model.state.allCountries);
@@ -38,7 +45,7 @@ const controlAllCountries = async function () {
 
 const controlSearchResults = async function () {
     try {
-        const query = homePageView.getQuery();
+        const query = searchAndFilterView.getQuery();
         if (!query) return;
 
         homePageView.renderSpinner();
@@ -51,7 +58,7 @@ const controlSearchResults = async function () {
 
 const controlFilterResults = async function () {
     try {
-        const filterValue = homePageView.getFilterValue();
+        const filterValue = searchAndFilterView.getFilterValue();
         if (!filterValue) return;
 
         homePageView.renderSpinner();
@@ -65,9 +72,9 @@ const controlFilterResults = async function () {
 const init = function () {
     controlAllCountries();
     headerView.addHandlerColorScheme(controlColorScheme);
+    searchAndFilterView.addHandlerSearch(controlSearchResults);
+    searchAndFilterView.addHandlerFilter(controlFilterResults);
     homePageView.addHandlerShowDetails(controlCountry);
-    homePageView.addHandlerSearch(controlSearchResults);
-    homePageView.addHandlerFilter(controlFilterResults);
     countryDetailView.addHandlerRender(controlCountry);
     countryDetailView.addHandlerReturnPage(controlAllCountries);
 };
