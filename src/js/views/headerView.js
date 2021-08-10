@@ -1,4 +1,4 @@
-class headerView {
+class HeaderView {
     _parentElement = document.querySelector('.header');
 
     addHandlerColorScheme(handler) {
@@ -15,4 +15,4 @@ class headerView {
     }
 }
 
-export default new headerView();
+export default new HeaderView();
