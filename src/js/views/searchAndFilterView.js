@@ -14,7 +14,7 @@ class SearchAndFilterView {
 
     getQuery() {
         const query = this._parentElement.querySelector('.search-input').value;
-        this._clearInput();
+        this._clearInputAndFilter();
         return query;
     }
 
@@ -23,8 +23,9 @@ class SearchAndFilterView {
         return filterValue;
     }
 
-    _clearInput() {
+    _clearInputAndFilter() {
         this._parentElement.querySelector('.search-input').value = '';
+        this._parentElement.querySelector('.region-filter').value = '';
     }
 }
 
