@@ -1,6 +1,6 @@
-import HomePageView from "./homePageView.js";
+import ResultsView from "./ResultsView.js";
 
-class FilterResultsView extends HomePageView {
+class FilterResultsView extends ResultsView {
     _parentElement = document.querySelector('.filter-results');
     _errorMessage = 'Data Access Error. Please try again later.';
 }

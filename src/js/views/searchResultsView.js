@@ -1,8 +1,7 @@
-import HomePageView from "./homePageView.js";
+import ResultsView from "./ResultsView.js";
 
-class SearchResultsView extends HomePageView {
+class SearchResultsView extends ResultsView {
     _parentElement = document.querySelector('.search-results');
-    _data;
     _errorMessage = 'No countries found for your query.';
 }
 
