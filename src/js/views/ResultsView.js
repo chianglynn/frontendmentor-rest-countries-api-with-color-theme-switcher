@@ -1,7 +1,7 @@
 import View from './View.js';
 import { numberWithCommas } from '../helpers.js';
 
-export default class HomePageView extends View {
+export default class ResultsView extends View {
     _data;
 
     _generateMarkup() {
