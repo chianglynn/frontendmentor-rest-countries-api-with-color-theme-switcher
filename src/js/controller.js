@@ -53,6 +53,7 @@ const controlAllCountries = async function () {
         await model.loadAllCountries();
         allCountriesView.render(model.getAllCountriesResultsPage());
         allPaginationView.render(model.state.allCountries);
+        updateCurrentPage(model.state.allCountries);
     } catch (err) {
         allCountriesView.renderError();
     }
@@ -70,6 +71,7 @@ const controlSearchResults = async function () {
         await model.loadSearchResults(query);
         searchResultsView.render(model.getSearchResultsPage());
         searchPaginationView.render(model.state.search);
+        updateCurrentPage(model.state.search);
     } catch (err) {
         searchResultsView.renderError();
     }
@@ -87,6 +89,7 @@ const controlFilterResults = async function () {
         await model.loadFilterResults(filterValue);
         filterResultsView.render(model.getFilterResultsPage());
         filterPaginationView.render(model.state.filter);
+        updateCurrentPage(model.state.filter);
     } catch (err) {
         filterResultsView.renderError();
     }
@@ -95,16 +98,26 @@ const controlFilterResults = async function () {
 const controlAllCountriesPagination = function (page) {
     allCountriesView.render(model.getAllCountriesResultsPage(page));
     allPaginationView.render(model.state.allCountries);
+    updateCurrentPage(model.state.allCountries);
 };
 
 const controlSearchPagination = function (page) {
     searchResultsView.render(model.getSearchResultsPage(page));
     searchPaginationView.render(model.state.search);
+    updateCurrentPage(model.state.search);
 };
 
 const controlFilterPagination = function (page) {
     filterResultsView.render(model.getFilterResultsPage(page));
     filterPaginationView.render(model.state.filter);
+    updateCurrentPage(model.state.filter);
+};
+
+const updateCurrentPage = function (state) {
+    document.querySelectorAll('.page-number').forEach(page => {
+        page.classList.remove('current-page');
+        if (+page.dataset.page === state.page) page.classList.add('current-page');
+    });
 };
 
 const init = function () {

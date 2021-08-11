@@ -261,7 +261,6 @@ h3 {
 
 .country-card {
     margin-bottom: 3rem;
-
     border-radius: 5px;
     background   : var(--background1);
 }
@@ -279,13 +278,18 @@ h3 {
 
 /* Pagination */
 .pagination {
+    padding   : 3rem 2rem;
+    width     : 100%;
+    background: var(--background2);
+}
+
+.all-pagination,
+.search-pagination,
+.filter-pagination {
     display        : flex;
     flex-direction : row;
     justify-content: center;
     align-items    : center;
-    padding        : 3rem 2rem;
-    width          : 100%;
-    background     : var(--background2);
 }
 
 .page-link {
@@ -451,7 +455,7 @@ h3 {
 
     /* Pagination */
     .current-page {
-        color: var(--background2);
+        color: var(--input-light);
     }
 
     /* Detail page */
