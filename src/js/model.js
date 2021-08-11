@@ -1,4 +1,4 @@
-import { API_URL_COUNTRY, API_URL_CODE, API_URL_REGION, API_URL_ALLCOUNTRIES } from './config.js';
+import { API_URL_COUNTRY, API_URL_CODE, API_URL_REGION, API_URL_ALLCOUNTRIES, RESULTS_PER_PAGE } from './config.js';
 import { getJSON } from './helpers.js';
 
 export const state = {
@@ -6,12 +6,20 @@ export const state = {
     search: {
         query: '',
         results: [],
+        page: 1, // default
+        resultsPerPage: RESULTS_PER_PAGE,
     },
     filter: {
         region: '',
         results: [],
+        page: 1, // default
+        resultsPerPage: RESULTS_PER_PAGE,
     },
-    allCountries: {},
+    allCountries: {
+        results: [],
+        page: 1, // default
+        resultsPerPage: RESULTS_PER_PAGE,
+    },
 };
 
 export const loadCountryByName = async function (countryName) {
@@ -77,7 +85,7 @@ export const loadFilterResults = async function (region) {
 export const loadAllCountries = async function () {
     try {
         const data = await getJSON(API_URL_ALLCOUNTRIES);
-        state.allCountries = data.map(country => {
+        state.allCountries.results = data.map(country => {
             return {
                 name: country.name,
                 flag: country.flag,
@@ -95,4 +103,28 @@ const loadCountryNameByCode = async function (alpha3Code) {
     const data = await getJSON(`${API_URL_CODE}${alpha3Code}`);
     const countryName = data.name;
     return countryName;
+};
+
+export const getAllCountriesResultsPage = function (page = state.allCountries.page) {
+    state.allCountries.page = page;
+
+    const start = (page - 1) * state.allCountries.resultsPerPage; // 0
+    const end = page * state.allCountries.resultsPerPage; // 19
+    return state.allCountries.results.slice(start, end);
+};
+
+export const getSearchResultsPage = function (page = state.search.page) {
+    state.search.page = page;
+
+    const start = (page - 1) * state.search.resultsPerPage; // 0
+    const end = page * state.search.resultsPerPage; // 19
+    return state.search.results.slice(start, end);
+};
+
+export const getFilterResultsPage = function (page = state.filter.page) {
+    state.filter.page = page;
+
+    const start = (page - 1) * state.filter.resultsPerPage; // 0
+    const end = page * state.filter.resultsPerPage; // 19
+    return state.filter.results.slice(start, end);
 };

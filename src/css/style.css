@@ -208,7 +208,7 @@ h3 {
 }
 
 /* Home page: Search */
-.container {
+.search-container {
     background: var(--background2);
 }
 
@@ -248,6 +248,11 @@ h3 {
     background-color: var(--background1);
 }
 
+/* Home page: Container */
+.container {
+    background: var(--background2);
+}
+
 /* Home page: Card */
 .country-card-container {
     display: grid;
@@ -270,6 +275,28 @@ h3 {
 
 .card-information h2 {
     margin-bottom: 1rem;
+}
+
+/* Pagination */
+.pagination {
+    display        : flex;
+    flex-direction : row;
+    justify-content: center;
+    align-items    : center;
+    padding        : 3rem 2rem;
+    width          : 100%;
+    background     : var(--background2);
+}
+
+.page-link {
+    padding      : .5rem .8rem;
+    border-radius: 20px;
+    background   : var(--background1);
+    cursor       : pointer;
+}
+
+.page-link:not(:last-child) {
+    margin-right: .2rem;
 }
 
 /* Detail page */
@@ -353,6 +380,22 @@ h3 {
         padding: 1.5rem 1.5rem 2.5rem;
     }
 
+    /* Pagination */
+    .page-link {
+        padding      : .5rem .8rem;
+        border-radius: 20px;
+        background   : var(--background1);
+        cursor       : pointer;
+    }
+
+    .page-link:hover {
+        filter: brightness(.9);
+    }
+
+    .page-desktop {
+        display: none;
+    }
+
     /* Detail Page */
     .information-section img {
         margin-bottom: 4rem;
@@ -404,6 +447,11 @@ h3 {
 
     .card-information {
         padding: 1.2rem 1rem 2.3rem;
+    }
+
+    /* Pagination */
+    .current-page {
+        color: var(--background2);
     }
 
     /* Detail page */
