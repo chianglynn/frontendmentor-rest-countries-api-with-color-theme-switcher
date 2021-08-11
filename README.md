@@ -55,6 +55,7 @@ Users should be able to:
 ### Useful resources
 
 - Stack Overflow - [Use async await with Array.map](https://stackoverflow.com/questions/40140149/use-async-await-with-array-map) - This helped me for getting correct JSON data instead of an array of promises when I tried to rendering border countries from country code to country name in the detail page.
+- Stack Overflow - [for loop in a javascript class method not working](https://stackoverflow.com/questions/37913241/for-loop-in-a-javascript-class-method-not-working) - This helped me to use for loops in a class function.
 
 ## Author
 
