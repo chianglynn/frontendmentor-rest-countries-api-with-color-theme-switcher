@@ -1,4 +1,4 @@
-import PaginationView from "./paginationView";
+import PaginationView from "./PaginationView.js";
 
 class FilterPaginationView extends PaginationView {
     _parentElement = document.querySelector('.filter-pagination');
