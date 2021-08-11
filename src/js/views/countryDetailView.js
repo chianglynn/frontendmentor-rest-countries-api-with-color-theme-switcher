@@ -48,7 +48,7 @@ class CountryDetailView extends View {
                     <div class="border-countries">
                         <h3>Border Countries:</h3>
                         <ul class="countries">
-                        ${this._data.borderCountries.length === 0 ? 'None' : this._data.borderCountries.map(border => `<li>${border}</li>`).join('')}
+                        ${this._data.borderCountries.length === 0 ? 'None' : this._data.borderCountries.map(border => `<li><a href="#${border}">${border}</a></li>`).join('')}
                         </ul>
                     </div>
                 </div>
