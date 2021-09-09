@@ -9,6 +9,7 @@ import searchPaginationView from './views/searchPaginationView.js';
 import filterPaginationView from './views/filterPaginationView.js';
 import countryDetailView from './views/countryDetailView.js';
 
+// Variables
 const searchContainer = document.querySelector('.search-container');
 const allCountriesContainer = document.querySelector('.all-countries');
 const searchResultsContainer = document.querySelector('.search-results');
@@ -18,6 +19,7 @@ const searchPaginationContainer = document.querySelector('.search-pagination');
 const filterPaginationContainer = document.querySelector('.filter-pagination');
 const countryIntroductionContainer = document.querySelector('.country-introduction');
 
+// Functions
 const controlColorScheme = function () {
     const colorScheme = headerView.getColorScheme();
     const themes = document.querySelectorAll('.theme');
@@ -132,4 +134,5 @@ const init = function () {
     countryDetailView.addHandlerReturnPage(controlAllCountries);
 };
 
+// On load
 init();
