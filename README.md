@@ -25,7 +25,7 @@ Users should be able to:
 - Filter countries by region
 - Click on a country to see more detailed information on a separate page
 - Click through to the border countries on the detail page
-- Click on pagination to change pages on the homepage
+- Click on the pagination to change pages on the homepage
 - Toggle the color scheme between light and dark mode
 
 ### Screenshot
