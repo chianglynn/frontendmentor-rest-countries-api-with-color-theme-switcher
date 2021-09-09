@@ -9,11 +9,10 @@
     --background2-light: hsl(0, 0%, 98%);
     /* Colors of dark color-scheme */
     --input-dark       : hsl(0, 0%, 100%);
-    ;
-    --text-dark       : hsl(0, 0%, 100%);
-    --elements-dark   : hsl(209, 23%, 22%);
-    --background1-dark: hsl(209, 23%, 22%);
-    --background2-dark: hsl(207, 26%, 17%);
+    --text-dark        : hsl(0, 0%, 100%);
+    --elements-dark    : hsl(209, 23%, 22%);
+    --background1-dark : hsl(209, 23%, 22%);
+    --background2-dark : hsl(207, 26%, 17%);
 }
 
 :root {
