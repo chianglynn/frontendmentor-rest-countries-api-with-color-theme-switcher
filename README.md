@@ -49,6 +49,7 @@ Users should be able to:
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
+- CSS GRID
 - Mobile-first workflow
 - JavaSrcipt with Model–view–controller(MVC) pattern
 
@@ -56,6 +57,7 @@ Users should be able to:
 
 - Stack Overflow - [Use async await with Array.map](https://stackoverflow.com/questions/40140149/use-async-await-with-array-map) - This helped me for getting correct JSON data instead of an array of promises when I tried to rendering border countries from country code to country name in the detail page.
 - Stack Overflow - [for loop in a javascript class method not working](https://stackoverflow.com/questions/37913241/for-loop-in-a-javascript-class-method-not-working) - This helped me to use for loops in a class function.
+- web.dev - [Building a color scheme](https://web.dev/building-a-color-scheme/) - This helped me to manage multiple color schemes in CSS.
 
 ## Author
 
