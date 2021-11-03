@@ -31,7 +31,7 @@ export const loadCountryByName = async function (countryName) {
         state.country = {
             name: country.name.official,
             flag: country.flags.svg,
-            nativeName: country.nativeName,
+            nativeName: Object.values(Object.values(country.name)[2])[0].official,
             population: country.population,
             region: country.region,
             subregion: country.subregion,
