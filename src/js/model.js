@@ -29,14 +29,14 @@ export const loadCountryByName = async function (countryName) {
         const borderCountries = await Promise.all(country.borders.map(alpha3Code => loadCountryNameByCode(alpha3Code)));
 
         state.country = {
-            name: country.name,
-            flag: country.flag,
+            name: country.name.official,
+            flag: country.flags.svg,
             nativeName: country.nativeName,
             population: country.population,
             region: country.region,
             subregion: country.subregion,
-            capital: country.capital,
-            topLevelDomain: country.topLevelDomain,
+            capital: country.capital[0],
+            topLevelDomain: country.tld[0],
             currencies: country.currencies,
             languages: country.languages,
             borderCountries,
@@ -52,11 +52,11 @@ export const loadSearchResults = async function (query) {
         const data = await getJSON(`${API_URL_COUNTRY}${query}`);
         state.search.results = data.map(country => {
             return {
-                name: country.name,
-                flag: country.flag,
+                name: country.name.official,
+                flag: country.flags.svg,
                 population: country.population,
                 region: country.region,
-                capital: country.capital,
+                capital: country.capital[0],
             };
         });
     } catch (err) {
@@ -70,11 +70,11 @@ export const loadFilterResults = async function (region) {
         const data = await getJSON(`${API_URL_REGION}${region}`);
         state.filter.results = data.map(country => {
             return {
-                name: country.name,
-                flag: country.flag,
+                name: country.name.official,
+                flag: country.flags.svg,
                 population: country.population,
                 region: country.region,
-                capital: country.capital,
+                capital: country.capital[0],
             };
         });
     } catch (err) {
@@ -85,10 +85,11 @@ export const loadFilterResults = async function (region) {
 export const loadAllCountries = async function () {
     try {
         const data = await getJSON(API_URL_ALLCOUNTRIES);
+
         state.allCountries.results = data.map(country => {
             return {
-                name: country.name,
-                flag: country.flag,
+                name: country.name.official,
+                flag: country.flags.svg,
                 population: country.population,
                 region: country.region,
                 capital: country.capital,
@@ -101,7 +102,7 @@ export const loadAllCountries = async function () {
 
 const loadCountryNameByCode = async function (alpha3Code) {
     const data = await getJSON(`${API_URL_CODE}${alpha3Code}`);
-    const countryName = data.name;
+    const countryName = data[0].name.common;
     return countryName;
 };
 

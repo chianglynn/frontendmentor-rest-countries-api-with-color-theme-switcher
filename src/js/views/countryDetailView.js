@@ -41,8 +41,8 @@ class CountryDetailView extends View {
                         </ul>
                         <ul class="other-information">
                             <li><strong>Top Level Domain: </strong>${this._data.topLevelDomain.toString()}</li>
-                            <li><strong>Currencies: </strong>${this._data.currencies.map(currency => currency.name).join(', ')}</li>
-                            <li><strong>Language: </strong>${this._data.languages.map(language => language.name).join(', ')}</li>
+                            <li><strong>Currencies: </strong>${Object.keys(this._data.currencies).join(', ')}</li>
+                            <li><strong>Language: </strong>${Object.values(this._data.languages).join(', ')}</li>
                         </ul>
                     </div>
                     <div class="border-countries">
