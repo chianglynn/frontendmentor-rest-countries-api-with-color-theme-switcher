@@ -15,7 +15,7 @@ export default class ResultsView extends View {
     _generateCountryCard(country) {
         return `
             <div class="country-card">
-                <a href="#${country.name}" class="country-card-link" >
+                <a href="#${country.name.replace(/\s/g, '')}" class="country-card-link" >
                     <div class="country-flag">
                         <img src="${country.flag}"
                             alt="${country.name}">
