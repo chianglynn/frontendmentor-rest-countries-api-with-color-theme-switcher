@@ -276,7 +276,7 @@ h3 {
 }
 
 /* Pagination */
-.pagination {
+.paginations {
     padding   : 3rem 2rem;
     width     : 100%;
     background: var(--background2);

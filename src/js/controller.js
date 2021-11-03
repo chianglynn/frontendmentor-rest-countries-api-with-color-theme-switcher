@@ -14,6 +14,7 @@ const searchContainer = document.querySelector('.search-container');
 const allCountriesContainer = document.querySelector('.all-countries');
 const searchResultsContainer = document.querySelector('.search-results');
 const filterResultsContainer = document.querySelector('.filter-results');
+const paginationsContainer = document.querySelector('.paginations');
 const allPaginationContainer = document.querySelector('.all-pagination');
 const searchPaginationContainer = document.querySelector('.search-pagination');
 const filterPaginationContainer = document.querySelector('.filter-pagination');
@@ -33,7 +34,7 @@ const controlCountry = async function () {
         const countryName = window.location.hash.slice(1);
         if (!countryName) return;
 
-        [searchContainer, allCountriesContainer, searchResultsContainer, filterResultsContainer, allPaginationContainer, searchPaginationContainer, filterPaginationContainer].forEach(container => container.classList.add('hidden'));
+        [searchContainer, allCountriesContainer, searchResultsContainer, filterResultsContainer, paginationsContainer, allPaginationContainer, searchPaginationContainer, filterPaginationContainer].forEach(container => container.classList.add('hidden'));
         countryIntroductionContainer.classList.remove('hidden');
 
         countryDetailView.renderSpinner();
@@ -66,7 +67,7 @@ const controlSearchResults = async function () {
         const query = searchAndFilterView.getQuery();
         if (!query) return;
 
-        [allCountriesContainer, filterResultsContainer, allPaginationContainer, filterPaginationContainer].forEach(container => container.classList.add('hidden'));
+        [allCountriesContainer, filterResultsContainer, allPaginationContainer, filterPaginationContainer, countryIntroductionContainer].forEach(container => container.classList.add('hidden'));
         [searchResultsContainer, searchPaginationContainer].forEach(container => container.classList.remove('hidden'));
 
         searchResultsView.renderSpinner();
